@@ -22,7 +22,7 @@ function SendEmail(list,template,keywords){
   },template,keywords);
 }
 
-function sendtointegromat (url,payload){
+function sendtowebhook (url,payload){
   var options =
       {
         "method"  : "POST",
