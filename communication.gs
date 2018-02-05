@@ -22,6 +22,24 @@ function SendEmail(list,template,keywords){
   },template,keywords);
 }
 
+function sendtointegromat (data){
+   var payload =
+      {
+        "message" : text
+      };
+  
+  var options =
+      {
+        "method"  : "POST",
+        "payload" : payload,   
+        "followRedirects" : true,
+        "muteHttpExceptions": true
+      };
+  
+  var result = UrlFetchApp.fetch("", options);
+}
+
+
 function sendtoslack (message){
   // Make a POST request with a JSON payload.
   //https://zapier.com/help/slack/#tips-formatting-your-slack-messages
