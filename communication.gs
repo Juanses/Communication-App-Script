@@ -22,12 +22,7 @@ function SendEmail(list,template,keywords){
   },template,keywords);
 }
 
-function sendtointegromat (data){
-   var payload =
-      {
-        "message" : text
-      };
-  
+function sendtointegromat (url,payload){
   var options =
       {
         "method"  : "POST",
@@ -36,7 +31,7 @@ function sendtointegromat (data){
         "muteHttpExceptions": true
       };
   
-  var result = UrlFetchApp.fetch("", options);
+  var result = UrlFetchApp.fetch(url, options);
 }
 
 
