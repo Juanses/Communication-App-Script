@@ -1,5 +1,19 @@
 var CommunicationClass = function(){
   
+  this.sendtoPushBullet = function(token,data){   
+    switch(data["type"]){
+      case "note":
+        var options = {
+          'method' : 'post',
+          'headers' : {"Access-Token":token},
+          'contentType': 'application/json',
+          'payload' : JSON.stringify(data)
+        };
+        UrlFetchApp.fetch('https://api.pushbullet.com/v2/pushes', options);
+        break;
+    }
+  }
+  
   this.sendPDFAttachment = function (to,subject,text,fileid){
     // Send an email with two attachments: a file from Google Drive (as a PDF) and an HTML file.
     var file = DriveApp.getFileById(fileid);
