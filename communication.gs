@@ -34,7 +34,6 @@ function sendtowebhook (url,payload){
   var result = UrlFetchApp.fetch(url, options);
 }
 
-
 function sendtoslack (message){
   // Make a POST request with a JSON payload.
   //https://zapier.com/help/slack/#tips-formatting-your-slack-messages
@@ -48,4 +47,15 @@ function sendtoslack (message){
   };
   //UrlFetchApp.fetch('https://hooks.zapier.com/hooks/catch/2479763/r4up7r/', options);
   UrlFetchApp.fetch('https://hook.integromat.com/rpj3sa5o8hejm5qqk5vivl58css9467v', options);
+}
+
+function checkemail (emailadress){
+  var response = UrlFetchApp.fetch('http://apilayer.net/api/check?access_key=2c633dc5186a0b58982efcbfe1c4c5c2&email='+emailadress+'&smtp=1&format=1');
+  var dataAll = JSON.parse(response.getContentText());
+  if (dataAll["smtp_check"] && dataAll["mx_found"]){
+    return true;
+  }
+  else{
+    return false;
+  }
 }
