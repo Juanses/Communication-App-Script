@@ -23,7 +23,7 @@ var CommunicationClass = function(){
     });
   }
   
-  this.SendMultipleEmail = function(emaildata,templatename,keywords){
+  this.SendMultipleEmailfromTemplate = function(emaildata,templatename,keywords){
     //var templatename = "template.html"
     //var emaildata = {"to":"juan@carians.fr,juan@carians.fr","subject":"subject","name":"Nombre"};
     //var keywords = {"juan@carians.fr":{"nom":"SUAREZ","prenom":"Juan"},"juan@bress.fr":{"nom":"VALENCIA","prenom":"Sebastian"}};
@@ -33,11 +33,8 @@ var CommunicationClass = function(){
     
     for (var key in keywords) {
       //Chaque email
-      Logger.log(key);
-      var htmlBody = template;
-      
+      var htmlBody = template;      
       for (var cle in keywords[key]) {
-        Logger.log(cle);
         if(cle == "nom"){
           htmlBody = htmlBody.replace("%"+cle+"%", keywords[key][cle].toProperCase());
         }
@@ -49,7 +46,7 @@ var CommunicationClass = function(){
     }
   }
   
-  this.SendSingleEmail = function(emaildata,templatename,keywords){
+  this.SendEmailfromTemplate = function(emaildata,templatename,keywords){
     /*
     var templatename = "template.html"
     var emaildata = {"to":"juan@carians.fr","subject":"subject","name":"Nombre"};
