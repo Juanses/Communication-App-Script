@@ -71,6 +71,15 @@ var CommunicationClass = function(){
   }
   
   this.sendtowebhook = function(url,payload){
+    /*
+    var data = {};
+    data["destinataire"]="D8EN9DGGM";
+    var tableau ="http://bit.ly/2yAbJ0s";
+    data["message"] = "alerte"
+    var comm = new CommunicationClass();
+    comm.sendtowebhook("https://hook.integromat.com/g6976vdh9y5h4cos301nhwxfycy8u6lb",data);
+    */
+    
     var options =
         {
           "method"  : "POST",
