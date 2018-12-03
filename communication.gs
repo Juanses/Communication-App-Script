@@ -14,6 +14,18 @@ var CommunicationClass = function(){
     }
   }
   
+  this.sendtransactionalemailwithsendinblue = function (apikey,data){
+    
+    var options = {
+      'method' : 'post',
+      'headers' : {"api-key":apikey},
+      'contentType': 'application/json',
+      'payload' : JSON.stringify(data)
+    };
+    UrlFetchApp.fetch('https://api.sendinblue.com/v3/smtp/email', options);
+    
+  }
+  
   this.sendPDFAttachment = function (to,subject,text,fileid){
     // Send an email with two attachments: a file from Google Drive (as a PDF) and an HTML file.
     var file = DriveApp.getFileById(fileid);
@@ -71,15 +83,6 @@ var CommunicationClass = function(){
   }
   
   this.sendtowebhook = function(url,payload){
-    /*
-    var data = {};
-    data["destinataire"]="D8EN9DGGM";
-    var tableau ="http://bit.ly/2yAbJ0s";
-    data["message"] = "alerte"
-    var comm = new CommunicationClass();
-    comm.sendtowebhook("https://hook.integromat.com/g6976vdh9y5h4cos301nhwxfycy8u6lb",data);
-    */
-    
     var options =
         {
           "method"  : "POST",
